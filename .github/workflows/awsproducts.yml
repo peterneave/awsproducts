@@ -56,6 +56,8 @@ jobs:
           <!-- paginate: skip -->
           # AWS Products
           Generated from https://aws.amazon.com/products
+
+          [![w:48](img/github-mark-white.svg)](https://github.com/peterneave/awsproducts)
           <!-- footer: Last updated $(date) -->
 
           ---
@@ -92,6 +94,9 @@ jobs:
 
       - name: Ensure build dir exists
         run: mkdir -p build
+
+      - name: Copy images directory (if exists)
+        run: if [[ -d img ]]; then cp -R img build/img; fi
 
       - name: Marp Build (awsproducts)
         uses: docker://marpteam/marp-cli:v3.0.2
