@@ -17,8 +17,7 @@ markdown_content="<!--
 marp: true
 title: AWS Products
 theme: default
-class:
-- invert
+class: invert
 paginate: true
 -->
 
