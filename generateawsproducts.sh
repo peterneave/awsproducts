@@ -52,7 +52,7 @@ echo -e "$markdown_content" >> "$markdown_file"
 
 # Data
 markdown_content=$(echo $data | \
-  sed -e 's/\\u003cp\\u003e//g; s/\\u003c\/p\\u003e//g; s/\\r//g; s/\\n//g; s/\/?did\\u003dap_card\\u0026trk\\u003dap_card//g; s/?did\\u003dap_card\\u0026trk\\u003dap_card//g; s/\\u0026nbsp\;//g;' | \
+  sed -e 's/\\u003cp\\u003e//g; s/\\u003c\/p\\u003e//g; s/\\r//g; s/\\n//g; s/\?[^"]*//g;  s/\\u0026nbsp\;//g;' | \
   jq -r '.items[] | "<!-- header: \(.item.additionalFields.productCategory) -->", "## \(.item.additionalFields.productName)","\(.item.additionalFields.productSummary)", "\(.item.additionalFields.productUrl)","\n_Launched \(.item.additionalFields.launchDate)_", "\n---" ' | \
   sed '$d')
 
