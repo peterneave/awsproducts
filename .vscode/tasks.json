@@ -1,0 +1,40 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Build HTML",
+            "type": "shell",
+            "command": "docker run --rm -v .:/home/marp/app/ -e LANG=$LANG marpteam/marp-cli awsproducts.md",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+        {
+            "label": "Build PDF",
+            "type": "shell",
+            "command": "docker run --rm --init -v .:/home/marp/app/ -e LANG=$LANG marpteam/marp-cli awsproducts.md --pdf",
+            "group": {
+                "kind": "build"
+            }
+        },
+        {
+            "label": "Build PowerPoint",
+            "type": "shell",
+            "command": "docker run --rm --init -v .:/home/marp/app/ -e LANG=$LANG marpteam/marp-cli awsproducts.md --pptx",
+            "group": {
+                "kind": "build"
+            }
+        },
+        {
+            "label": "Watch and built HTML",
+            "type": "shell",
+            "command": "docker run --rm --init -v .:/home/marp/app/ -e LANG=$LANG -p 37717:37717 marpteam/marp-cli -w awsproducts.md",
+            "group": {
+                "kind": "build"
+            }
+        }
+    ]
+}
