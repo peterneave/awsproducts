@@ -19,7 +19,13 @@ title: AWS Products
 theme: default
 class: invert
 paginate: true
+backgroundImage: 'linear-gradient(to bottom, #232f3e, #1a232e)'
 -->
+
+<style>
+a { color: #f7a226 }
+header,footer { color: #fff }
+</style>
 
 <!-- paginate: skip -->
 # AWS Products
